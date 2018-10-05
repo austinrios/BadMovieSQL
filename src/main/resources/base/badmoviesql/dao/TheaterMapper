@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="base.badmoviesql.model.Director">
+    <resultMap id="Theater" type="base.badmoviesql.model.Theater">
+        <id property="id" column="id" javaType="int"/>
+        <result property="location" column="location" javaType="java.lang.String"/>
+        <result property="group" column="groups" javaType="java.lang.String"/>
+        <result property="number" column="number" javaType="int"/>
+    </resultMap>
+
+    <select id="findById" parameterType="long" resultType="com.javacodegeeks.snippets.enterprise.Employee">SELECT id, name, surname, title, created FROM employee WHERE id = #{id}  </select>
+</mapper>

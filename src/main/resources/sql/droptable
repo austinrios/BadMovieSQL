@@ -1,0 +1,5 @@
+Drop table showtime;
+drop table theater;
+drop table movie;
+drop table director;
+
