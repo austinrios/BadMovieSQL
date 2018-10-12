@@ -3,14 +3,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="base.badmoviesql.model.Showtime">
+<mapper namespace="base.badmoviesql.dao.mapper.ShowtimeMapper">
     <resultMap id="Showtime" type="base.badmoviesql.model.Showtime">
         <id property="id" column="id" javaType="int"/>
         <result property="movie_id" column="movie_id" javaType="int"/>
-        <result property="show_time" column="show_time" javaType="java.time.LocalDateTime"/>
+        <!--<result property="show_time" column="show_time" javaType="java.time.LocalDateTime"/>-->
         <result property="theater_ID" column="theater_ID" javaType="int"/>
 
     </resultMap>
 
-    <select id="findById" parameterType="long" resultType="com.javacodegeeks.snippets.enterprise.Employee">SELECT id, name, surname, title, created FROM employee WHERE id = #{id}  </select>
 </mapper>

@@ -8,7 +8,7 @@ VALUES
 (1, 'Malvern', 69, 'AMC'),
 (2, 'Ardmore', 12, 'Regal');
 
-insert into movie("id","title","director_id", "run_time", "release_date")
+insert into movie("id","title","directorId", "runTime", "release_date")
 values
 (1,'Batman and Robin', 1, 125, '1997-06-20'),
 (2,'She''s all that', 2, 95, '1999-01-29');

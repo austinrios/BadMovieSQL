@@ -28,6 +28,15 @@
             <artifactId>postgresql</artifactId>
             <version>42.2.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -38,6 +47,9 @@
         <jdbc.url>jdbc:postgresql://localhost:5432/moviedb</jdbc.url>
         <jdbc.username>postgres</jdbc.username>
         <jdbc.password>12345</jdbc.password>
+        <maven.install.skip>false</maven.install.skip>
+        <maven.test.skip>false</maven.test.skip>
+        <maven.create.skip>true</maven.create.skip>
     </properties>
 
 
@@ -53,8 +65,48 @@
                         <target>${maven.compiler.target}</target>
                     </configuration>
                 </plugin>
+                <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <skip>${maven.install.skip}</skip>
+                </configuration>
+                <executions>
+                <execution>
+                    <!-- CREATE DATABASE SQL SCRIPT-->
+                    <id>create-database</id>
+                    <phase>process-test-resources</phase>
+                    <configuration>
+                        <skip>${maven.create.skip}</skip>
+                        <executable>psql</executable>
+                        <workingDirectory>target/classes/sql</workingDirectory>
+                        <environmentVariables>
+                            <PGPASSWORD>
+                                ${jdbc.password}
+                            </PGPASSWORD>
+                        </environmentVariables>
+                        <arguments> w
+                            <argument>-U</argument>
+                            <argument>${jdbc.username}</argument>
+                            <argument>-f</argument>
+                            <argument>createdb.sql</argument>
+                        </arguments>
+                    </configuration>
+                    <goals>
+                        <goal>exec</goal>
+                    </goals>
+                </execution>
+                </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

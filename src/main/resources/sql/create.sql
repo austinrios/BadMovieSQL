@@ -1,3 +1,8 @@
+Drop table showtime;
+drop table theater;
+drop table movie;
+drop table director;
+
 CREATE TABLE director(
   id int,
   first_name varchar,
@@ -16,11 +21,11 @@ CREATE TABLE theater(
 CREATE TABLE movie(
   id int,
   title VARCHAR(40),
-  director_id INT,
-  run_time INT ,
+  directorId INT,
+  runTime INT ,
   release_date date,
   PRIMARY key (id),
-  FOREIGN key (director_id) references director(id)
+  FOREIGN key (directorId) references director(id)
 );
 
 CREATE TABLE showtime(

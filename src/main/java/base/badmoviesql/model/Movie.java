@@ -2,12 +2,14 @@ package base.badmoviesql.model;
 
 import sun.util.calendar.LocalGregorianCalendar;
 
+import java.time.LocalDateTime;
+
 public class Movie {
     int id;
     String title;
-    int director_id;
-    int run_time;
-    LocalGregorianCalendar.Date release_date;
+    int directorId;
+    int runTime;
+    LocalDateTime releaseDate;
 
     public int getId() {
         return id;
@@ -25,28 +27,28 @@ public class Movie {
         this.title = title;
     }
 
-    public int getDirector_id() {
-        return director_id;
+    public int getDirectorId() {
+        return directorId;
     }
 
-    public void setDirector_id(int director_id) {
-        this.director_id = director_id;
+    public void setDirectorId(int directorId) {
+        this.directorId = directorId;
     }
 
-    public int getRun_time() {
-        return run_time;
+    public int getRunTime() {
+        return runTime;
     }
 
-    public void setRun_time(int run_time) {
-        this.run_time = run_time;
+    public void setRunTime(int runTime) {
+        this.runTime = runTime;
     }
 
-    public LocalGregorianCalendar.Date getRelease_date() {
-        return release_date;
+    public LocalDateTime getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setRelease_date(LocalGregorianCalendar.Date release_date) {
-        this.release_date = release_date;
+    public void setReleaseDate(LocalDateTime releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     @Override
@@ -54,9 +56,9 @@ public class Movie {
         return "Movie{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", director_id=" + director_id +
-                ", run_time=" + run_time +
-                ", release_date=" + release_date +
+                ", directorId=" + directorId +
+                ", runTime=" + runTime +
+                ", releaseDate=" + releaseDate +
                 '}';
     }
 }
